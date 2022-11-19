@@ -1,6 +1,5 @@
-function hello() {
-    console.log('Hola mundo')
-    console.log('Trabajando con JS')
+function hello(name) {
+    return 'Hola ' + name
 }
 
-hello()
+console.log(hello("xd"))
