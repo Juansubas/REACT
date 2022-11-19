@@ -1,5 +1,5 @@
-function hello(name) {
-    return 'Hola ' + name
+function add(x, y) {
+    return x + y;
 }
 
-console.log(hello("xd"))
+console.log(add(10,20));
