@@ -1,0 +1,30 @@
+const user = {
+    //Properties
+    name: "Juan",
+    lastname: "Perez",
+    age: 30,
+    addres : {
+        country: 'colombia',
+        city: 'bogota',
+        street: 'main street 123'
+    },
+    friends: ['brandon', 'elena'],
+    active: true,
+    //Methods---
+    //One way
+    sendMail: function () {
+        return 'sending email...'
+    },
+    //Better
+    sendMaill() {
+        return 'sending email...'
+    }
+
+}
+
+console.log(user.name)
+console.log(user.addres)
+console.log(user.friends[0])
+console.log(user.active)
+console.log(user.sendMail())
+console.log(user.sendMaill())
