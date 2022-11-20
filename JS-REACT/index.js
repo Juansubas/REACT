@@ -1,25 +1,19 @@
-const user = {
-    name: 'Juan',
-    age: 30
-}
+const button = document.createElement('button');
+button.innerText = 'click me';
 
-// Destructuración
-// al usar { name }
-// lo que hacemos es que extraemos el name
-// y podemos usarlo como variable
-// ahí le pasamos el objeto user de otra forma tocaría hacer lo siguiente
-// const { name } = user
-// poner la variable destructurada y de donde sale
-// podemos cambairle el nombre de la siguiente manera
-// const { name: nombre } = user
+const isAuthorized = false;
 
+//Mediante el return podemos evitar el else
+//en algunas funciones
+//si esta autorizado acaba con la función
+//sino sigue ejecutando
 
-function xd( {name} ) {
-    return name;
-}
+button.addEventListener('click', () => {
+    if (isAuthorized) {
+        return alert('esta autorizado');
+    }
 
-function ejemploDos( user ){
-    const { name, age } = user
-}
+    alert('no esta autorizado');
+})
 
-console.log(xd(user))
+document.body.append(button);

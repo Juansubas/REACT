@@ -28,4 +28,4 @@ const loco = x => console.log(x)
 
 const showObject = () => ({name: "Ryan"})
 
-//MINUTO 
+//MINUTO 40:34
