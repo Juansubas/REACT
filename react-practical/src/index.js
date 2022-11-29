@@ -9,7 +9,10 @@ function Greeting() {
     lastName: 'Ray'
   }
 
-  return <h1>{JSON.stringify()}</h1>;
+  return <div>
+    <h1> { user.firstName }</h1>
+    <h3> { user.lastName } </h3>
+  </div>;
 }
 
 root.render(
