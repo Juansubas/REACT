@@ -4,9 +4,12 @@ import ReactDOM from "react-dom/client";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function Greeting() {
-  const married = false;
+  const user = {
+    firstName: 'ryan',
+    lastName: 'Ray'
+  }
 
-  return <h1>{married ? "Estoy Casado 🤣" : "No Estoy Casado 🥰"}</h1>;
+  return <h1>{JSON.stringify()}</h1>;
 }
 
 root.render(
