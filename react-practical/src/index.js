@@ -4,7 +4,9 @@ import ReactDOM from "react-dom/client";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function Greeting() {
-  return <h1>Hello World!!</h1>
+  const name = "Juan";
+
+  return <h1>{ name }</h1>
 }
 
 root.render(
@@ -12,3 +14,4 @@ root.render(
     <Greeting />
   </div>
 );
+
