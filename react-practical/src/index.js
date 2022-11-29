@@ -4,14 +4,10 @@ import ReactDOM from "react-dom/client";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function Greeting() {
-  const user = {
-    firstName: 'ryan',
-    lastName: 'Ray'
-  }
+  const married = true
 
   return <div>
-    <h1> { user.firstName }</h1>
-    <h3> { user.lastName } </h3>
+    <h1> { married.toString() }</h1>
   </div>;
 }
 
