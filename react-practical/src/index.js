@@ -4,10 +4,13 @@ import ReactDOM from "react-dom/client";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function Greeting() {
-  const married = true
+
+  function add(x, y) {
+    return x + y
+  }
 
   return <div>
-    <h1> { married.toString() }</h1>
+    <h1> { add(10, 30) }</h1>
   </div>;
 }
 
