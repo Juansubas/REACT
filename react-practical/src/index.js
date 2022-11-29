@@ -4,9 +4,10 @@ import ReactDOM from "react-dom/client";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function Greeting() {
-  const name = "Juan";
+  const married = false;
 
-  return <h1>{ name }</h1>
+  return <h1>{ married ? 'Estoy Casado' : 'No Estoy Casado'}</h1>
+
 }
 
 root.render(
