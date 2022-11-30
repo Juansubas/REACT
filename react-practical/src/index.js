@@ -7,10 +7,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <>
-    <Greeting />
-    <Greeting />
-    <Greeting />
-    <Greeting />
-    <Greeting />
+    <Greeting title="Hola Mundo" name="Joe"/>
+    <Greeting title="Hola React" lastname="Doe"/>
+    <Greeting title="Hola JSX" />
+    <Greeting title="Hola JavaScript" />
+    <Greeting title="Hola Juan" />
   </>
 );
