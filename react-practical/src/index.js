@@ -9,13 +9,17 @@ function Greeting() {
     return x + y
   }
 
-  return <div>
+  return <>
     <h1> { add(10, 30) }</h1>
-  </div>;
+  </>;
 }
 
 root.render(
-  <div>
+  <>
     <Greeting />
-  </div>
+    <Greeting />
+    <Greeting />
+    <Greeting />
+    <Greeting />
+  </>
 );
