@@ -10,7 +10,7 @@ root.render(
   <>
   <Button text='Click me' />
   <Button text='Pay' />
-  <Button text={{text: "Hola"}} />
+  <Button text='Hello World' name='Joe' />
     {/* <UserCard
       name="Ryan Ray"
       amount={3000}
