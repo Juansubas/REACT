@@ -20,7 +20,12 @@ const users = [
 root.render(
   <>
     {users.map((user, i) => {
-      return <h1 key={i}>{user.name}</h1>;
+      return (
+        <div key={i}>
+          <h1>{user.name}</h1>
+          <img src={user.image} />
+        </div>
+      );
     })}
   </>
 );
