@@ -1,16 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Greeting, UserCard } from "./Greeting";
-import Product, { Navbar } from "./Product";
-import {Button} from './Button'
-import {TaskCard} from './Task'
+import { Post } from "./Posts";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+const user = [
+  {
+    id: 1,
+    name: 'Juan xd',
+    image: 'https://robohash.org/user1'
+  },
+  {
+    id: 1,
+    name: 'Joe xd',
+    image: 'https://robohash.org/user2'
+  }
+]
+
 root.render(
   <>
-    <TaskCard ready={true}/>
-    <Button text="Saludar" />
-    <input id="hola" onDoubleClick={()=>{alert("xD")}}/>
+    <Post/>
   </>
 );
