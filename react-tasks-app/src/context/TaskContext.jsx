@@ -26,7 +26,7 @@ export function TaskContextProvider(props) {
   }, []);
 
   return (
-    <TaskContextProvider
+    <TaskContext.Provider
       value={{
         tasks,
         deleteTask,
@@ -34,6 +34,6 @@ export function TaskContextProvider(props) {
       }}
     >
       {props.children}
-    </TaskContextProvider>
+    </TaskContext.Provider>
   );
 }
