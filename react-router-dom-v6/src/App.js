@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -16,6 +16,7 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/users" element={<UsersPage />} />
         <Route path="/users/:id" element={<UserPage />} />
+        <Route path="/usuarios" element={<Navigate replace to='/users' />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
