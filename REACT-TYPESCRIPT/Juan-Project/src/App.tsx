@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Greeter from './Greeter';
+import ModificarEdad from './ModificarEdad';
 
 function App() {
   const [edad, setEdad] = useState<number>(0);
@@ -11,12 +12,10 @@ function App() {
   return(
     <div className="App">
       <p>{edad}</p>
-      <input
-        type="number"
-        value= {edad}
-        onChange={e => setEdad(parseInt(e.target.value))}
+      <ModificarEdad
+        edad={edad}
+        setEdad={setEdad}
       />
-      <button onClick={() => setEdad(edad + 1)}>Aumentar</button>
     </div>
   );
 
