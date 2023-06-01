@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 
 interface Props {
     nombre:string;
-    edad: number;
+    edad?: number;
     //children: Element; Element sirve para lagunas cosas
     //cuando no entonces usamos esto:
     children?: JSX.Element;
@@ -26,24 +26,24 @@ interface Props {
  * Tambien podemos poner el type directamente remplazando donde dice Props para aprovechar la destructuracion
  * const Greeter = ({ nombre, edad}: {nombre:string; edad:number}) 
  */
-const Greeter = ({ nombre, edad, children}: Props) => {
+const Greeter = ({ nombre, edad = 27, children}: Props) => {
     //...
 
     const edadMejorada = edad.toFixed();
 
     return(
         <div>
-            <p>Hola {nombre} tienes {edad} de edad</p>
+            <p>Hola {nombre} tienes {edadMejorada} de edad</p>
             {children}
         </div>
     );    
 };
 
-Greeter.propTypes = {
-    name: PropTypes.string.isRequired,
-    edad: PropTypes.number,
-    children: PropTypes.element,
-};
+// Greeter.propTypes = {
+//     name: PropTypes.string.isRequired,
+//     edad: PropTypes.number,
+//     children: PropTypes.element,
+// };
 
 export default Greeter;
 
