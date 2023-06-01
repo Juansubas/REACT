@@ -6,15 +6,30 @@ import './App.css'
 import Greeter from './Greeter';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [edad, setEdad] = useState<number>(0);
 
-  return (
-    <>
-      <Greeter nombre="Adrian" edad={27}>
-        <div>Hola, soy el hijo</div>
-      </Greeter>
-    </>
-  )
+  return(
+    <div className="App">
+      <p>{edad}</p>
+      <input
+        type="number"
+        value= {edad}
+        onChange={e => setEdad(parseInt(e.target.value))}
+      />
+      <button onClick={() => setEdad(edad + 1)}>Aumentar</button>
+    </div>
+  );
+
+
+  //Usando un componente Llamado Greeter y se le pasan
+  //Propiedad como nombre, edad y un hijo que es lo que esta adentro
+  // return (
+  //   <>
+  //     <Greeter nombre="Adrian" edad={27}>
+  //       <div>Hola, soy el hijo</div>
+  //     </Greeter>
+  //   </>
+  // )
 }
 
 export default App;
