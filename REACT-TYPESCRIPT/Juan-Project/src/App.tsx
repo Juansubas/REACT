@@ -1,21 +1,24 @@
-//import { useState } from 'react'
-import { useState } from 'react';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useRef, useState } from 'react';
+
 import './App.css'
-import Greeter from './Greeter';
-import ModificarEdad from './ModificarEdad';
-import Hijo1  from './Hijo1';
-import { EdadProvider } from './EdadContext';
+
 
 function App() {
   const [edad, setEdad] = useState<number>(0);
+  const ref1 = useRef<HTMLDivElement>(null);
 
   return(
     <div className="App">
-      <EdadProvider>
-        <Hijo1></Hijo1>
-      </EdadProvider>
+      <div ref={ref1}>Div 1</div>
+      <button
+        onClick={() => {
+          if (ref1.current) {
+            ref1.current.style.backgroundColor = 'red';
+          }
+        }}
+      >
+        Cambiar fondo 1 
+      </button>
     </div>
   );
 
