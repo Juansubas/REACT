@@ -1,24 +1,31 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useReducer } from 'react';
 
 import './App.css'
 
 
 function App() {
-  const [edad, setEdad] = useState<number>(0);
-  const ref1 = useRef<HTMLDivElement>(null);
+
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case 'increment' :
+        return { ...state, age: state.age + 1};
+      case 'decrement' :
+        return { ...state, age: state.age - 1};
+      case 'reset' :
+        return { ...state, age: 20};
+      default:
+        return state;
+    }
+  };
+
+  const [person, dispatch] = useReducer(reducer, {name:'John', age: 20});
 
   return(
     <div className="App">
-      <div ref={ref1}>Div 1</div>
-      <button
-        onClick={() => {
-          if (ref1.current) {
-            ref1.current.style.backgroundColor = 'red';
-          }
-        }}
-      >
-        Cambiar fondo 1 
-      </button>
+      <h1>Edad: {person.age}</h1>
+      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
+      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
     </div>
   );
 
