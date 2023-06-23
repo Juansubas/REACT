@@ -7,9 +7,9 @@ function App() {
   const [age, setAge] = useState(1);
   const ciclosTotales = useRef(1_000_000_000);
 
-  const multiplyAge = () => {
+  const multiplyAge = useCallback(() => {
     setAge(prev => prev * 2);
-  };
+  }, [setAge]);
 
   const expensiveInitialState = () => {
     for (let i = 0; i < ciclosTotales.current; i++) {}
