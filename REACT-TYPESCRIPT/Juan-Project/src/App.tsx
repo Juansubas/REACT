@@ -1,31 +1,30 @@
-import { useRef, useState, useReducer } from 'react';
-
+import {useState, useRef, useMemo, useCallback } from 'react';
 import './App.css'
-
+import Child from './Child';
 
 function App() {
 
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case 'increment' :
-        return { ...state, age: state.age + 1};
-      case 'decrement' :
-        return { ...state, age: state.age - 1};
-      case 'reset' :
-        return { ...state, age: 20};
-      default:
-        return state;
-    }
+  const [age, setAge] = useState(1);
+  const ciclosTotales = useRef(1_000_000_000);
+
+  const multiplyAge = () => {
+    setAge(prev => prev * 2);
   };
 
-  const [person, dispatch] = useReducer(reducer, {name:'John', age: 20});
+  const expensiveInitialState = () => {
+    for (let i = 0; i < ciclosTotales.current; i++) {}
+    console.log('value recalculated');
+    return ciclosTotales.current;
+  };
+
+  const valor = useMemo(expensiveInitialState, [ciclosTotales.current]);
 
   return(
     <div className="App">
-      <h1>Edad: {person.age}</h1>
-      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
-      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
-      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+      <p>
+        {age} and {valor}
+      </p>
+      <Child multiplyAge={multiplyAge}/>
     </div>
   );
 
