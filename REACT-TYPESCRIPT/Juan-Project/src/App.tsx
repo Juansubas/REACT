@@ -1,30 +1,42 @@
-import {useState, useRef, useMemo, useCallback } from 'react';
+import {useState } from 'react';
 import './App.css'
-import Child from './Child';
+
 
 function App() {
 
-  const [age, setAge] = useState(1);
-  const ciclosTotales = useRef(1_000_000_000);
+  const [clickPos, setClickPos] = useState({ x: 0, y:0 });
 
-  const multiplyAge = useCallback(() => {
-    setAge(prev => prev * 2);
-  }, [setAge]);
+  const handleSubmit = e => {
+    e.preventDefault();
+    const name = e.currentTarget.elements.namedItem('name');
+    const password = e.target.password;
 
-  const expensiveInitialState = () => {
-    for (let i = 0; i < ciclosTotales.current; i++) {}
-    console.log('value recalculated');
-    return ciclosTotales.current;
+    console.log(name.value, password.value)
   };
 
-  const valor = useMemo(expensiveInitialState, [ciclosTotales.current]);
+  const handleClick = (e:React.MouseEvent<HTMLDivElement, MouseEvent>) =>{
+    const backgroundColor = e.currentTarget.style.backgroundColor;
+    setClickPos({ x: e.clientX, y: e.clientY})
+  };
+
 
   return(
-    <div className="App">
+    <div className="App" onClick={handleClick}>
       <p>
-        {age} and {valor}
+        {clickPos.x} and {clickPos.y}
       </p>
-      <Child multiplyAge={multiplyAge}/>
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: 'flex', flexDirection: 'column'}}
+      >
+        <label htmlFor="name">Name</label>
+        <input type="text" id="name"/>
+
+        <label htmlFor="password">Password</label>
+        <input type="password" id="password"/>
+
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 
