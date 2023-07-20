@@ -7,20 +7,6 @@ interface Person {
     };
 }
 
-function devolverNumero(a: number){
-    if (a < 0){
-        return null;
-    }
+type PersonNameLess = Omit<Person, "name">;
 
-    if (a > 10) {
-        return 'hola';
-    }
-
-    return a;
-}
-
-
-
-
-let x: ReturnType<typeof devolverNumero>;
 
