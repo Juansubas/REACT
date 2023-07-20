@@ -1,14 +1,33 @@
 interface Person {
-    name?: string;
-    age: number;
-    address: {
-        city: string;
-        country: string;
-    };
+    name: number,
+    age: number,
+    hobby: string,
+    country: string,
+    city: string,
+    surname: string,
 }
 
+//Indicamos primero los tipos para las llaves y 
+//luego los tipos para los valores
+type PersonRecord = Record<string, string>;
+type PersonRecordTwo = Record<'name' | 'age', string>;
+type PersonRecordThree = Record<'name' | 'age', string | number>;
 
-function loguearDatosDePersonaConNombre(persona: Required<Person>){
-    const {name, age} = persona;
-    console.log(name, age);
+const nuevoJuanito : PersonRecord = {
+    name: 'xd',
+    age: 'xd',
+    hobby: 'xd',
+    country: 'xd',
+    city: 'xd',
+    surname: 'xd',
+}
+
+const nuevoJuanitoss : PersonRecordTwo = {
+    name: 'xd',
+    age: 'xd',
+}
+
+const nuevoJuanitos : PersonRecordThree = {
+    name: 1,
+    age: 'xd',
 }
