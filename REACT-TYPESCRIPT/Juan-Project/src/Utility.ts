@@ -7,6 +7,18 @@ interface Person {
     };
 }
 
-type PersonNameLess = Omit<Person, "name">;
+
+
+
+
+
+
+type PersonNameLess = Pick<Person, "name">;
+
+
+function loguearDatos(persona: Person){
+    const {name, age} = persona;
+    console.log(name, age);
+}
 
 
