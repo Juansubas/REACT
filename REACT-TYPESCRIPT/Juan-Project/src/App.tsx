@@ -1,10 +1,13 @@
 import './App.css'
+import Child from './Child';
 
+
+//TypeSafety
 function App() {
 
   return(
     <div className='App'> 
-      <p className='texto'> Buenas Tardes </p>
+      <Child />
     </div>
   );
 }

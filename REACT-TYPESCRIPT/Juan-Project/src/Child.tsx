@@ -1,14 +1,18 @@
-type Props = {
-    multiplyAge: () => void;
-};
+import React from 'react';
+import GrandChild from './GrandChild';
+import ErrorBoundary from './ErrorBoundary';
 
-const Child = memo(
-    ({ multiplyAge }: Props ) =>{
-        console.log('Child re-render');
-        return(
-            <button onClick={multiplyAge}>Multiply Age</button>
-        );
-    };
-);
+type Props = {};
+
+function Child ({}: Props) {
+  return (
+    <div>
+      Child
+      <ErrorBoundary>
+        <GrandChild/>
+      </ErrorBoundary>
+    </div>
+  );
+}
 
 export default Child;
