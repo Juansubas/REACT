@@ -1,5 +1,5 @@
 interface Person {
-    name: string;
+    name?: string;
     age: number;
     address: {
         city: string;
@@ -8,17 +8,7 @@ interface Person {
 }
 
 
-
-
-
-
-
-type PersonNameLess = Pick<Person, "name">;
-
-
-function loguearDatos(persona: Person){
+function loguearDatosDePersonaConNombre(persona: Required<Person>){
     const {name, age} = persona;
     console.log(name, age);
 }
-
-
