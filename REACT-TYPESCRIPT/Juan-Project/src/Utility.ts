@@ -1,33 +1,11 @@
-interface Person {
-    name: number,
-    age: number,
-    hobby: string,
-    country: string,
-    city: string,
-    surname: string,
+async function devolverNumeroAsync(a: number) {
+
+    return a;
 }
 
-//Indicamos primero los tipos para las llaves y 
-//luego los tipos para los valores
-type PersonRecord = Record<string, string>;
-type PersonRecordTwo = Record<'name' | 'age', string>;
-type PersonRecordThree = Record<'name' | 'age', string | number>;
+//
+let y: ReturnType<typeof devolverNumeroAsync>;0
 
-const nuevoJuanito : PersonRecord = {
-    name: 'xd',
-    age: 'xd',
-    hobby: 'xd',
-    country: 'xd',
-    city: 'xd',
-    surname: 'xd',
-}
+// con awaited
 
-const nuevoJuanitoss : PersonRecordTwo = {
-    name: 'xd',
-    age: 'xd',
-}
-
-const nuevoJuanitos : PersonRecordThree = {
-    name: 1,
-    age: 'xd',
-}
+let x : Awaited<ReturnType<typeof devolverNumeroAsync>>;
