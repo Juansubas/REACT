@@ -56,10 +56,12 @@ const animalSpecies = Symbol('animal');
 
 interface Human {
     name: string;
+    species: typeof humanSpecies
 }
 
 interface Animal {
     name: string;
+    species: typeof animalSpecies;
 }
 
 interface Cosa {
@@ -76,12 +78,14 @@ const cosa: Cosa = {
 
 const pedrito: Human = {
     name: 'Pedro',
+    species: humanSpecies,
 }
 
 const perro: Animal = {
     name: 'Firulais',
+    species: animalSpecies,
 }
 
 printHuman(pedrito);
-printHuman(llaves);
-printHuman(perro);
+// printHuman(llaves);
+// printHuman(perro);

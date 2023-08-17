@@ -1,13 +1,19 @@
 import './App.css'
-import Child from './Child';
-
+import Polymorphic from './Polymorphic';
 
 //TypeSafety
 function App() {
 
   return(
-    <div className='App'> 
-      <Child />
+    <div > 
+      <Polymorphic
+      as="div" 
+      href="https://www.google.com" 
+      target= "_blank"
+      variant="black"
+      >
+        Hola
+      </Polymorphic>
     </div>
   );
 }
