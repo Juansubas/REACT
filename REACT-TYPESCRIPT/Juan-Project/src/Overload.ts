@@ -1,16 +1,18 @@
+function concatenate<T, P>(a: T[], b: P[]): (T |P)[];
+function concatenate<T>(a: T[], b: T[]): T[];
+function concatenate(a:string, b:string):string;
 
-// Overload
+function concatenate(a: string | any[], b: string | any[]) {
+    if(typeof a === 'string' && typeof b === 'string'){
+        return a + b;
+    } else if (Array.isArray(a) && Array.isArray(b)){
+        return [...a, ...b];
+    }
 
-function add(a: number, b: number): number;
-
-function add(a: string, b: string): string;
-
-function add(a: string, b: number): string;
-
-function add(a: any, b: any): any{
-    return a + b;
+    return undefined;
 }
 
-const res1 = add(1, 2);
-const res2 = add('a', 'b');
-const res3 = add('a', 1);
+const result = concatenate('Hello', 'World');
+const result2= concatenate<number>([1, 2, 3], [4, 5, 6]);
+const result5= concatenate([1, 2, 3], ['a', 'b', 'c']);
+
