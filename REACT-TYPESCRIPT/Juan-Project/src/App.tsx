@@ -1,68 +1,26 @@
-import './App.css'
+import React from 'react';
+import './App.css';
+import Modal from './PortalModal';
 
 function App() {
-
-  return(
-    <div > 
-      <SubsribedSideBar name={name} />
-      <SubsribedHeader name={name} />
+  const [showModal, setShowModal] = React.useState(false);
+  return (
+    <div className="App">
+    <div id="modal-root"></div>
+      {showModal && (
+        <Modal id={'modal-root'}>
+          Modal Content
+          <button
+            style = {{ background: 'gray' }}
+            onClick={() => setShowModal(false)}
+          >
+            Close
+          </button>
+        </Modal>
+      )}
+      <button onClick={() => setShowModal(true)}>show Modal</button>
     </div>
   );
 }
-
-type OriginalProps = {
-  name: string;
-};
-
-const SideBar = ({ name} :OriginalProps) => {
-  // ... a lot code
-  return <div> Helo, {name}</div>;
-}
-
-const Header = ({ name }: OriginalProps) => {
-  // ... a lot code
-  const favs = [1, 2, 3, 4, 5];
-  return (
-      <div>
-        Your favorites, {name}
-        {favs.map(fav => (
-          <div>{fav}</div>
-        ))}
-      </div>
-  );
-};
-
-
-type OriginalProps2 = {
-  name: string;
-  date: string;
-};
-
-const Nav = ({name} :OriginalProps2) =>{
-  // ... a lot code.
-  return <div> Hola, {name}</div>;
-};
-
-type ExtendedProps =  OriginalProps & {
-  isSubscribed: boolean;
-};
-
-function withSubscribed(OriginalComponent : React.ComponentType<OriginalProps>) {
-
-  const WithSubscribed = (props:ExtendedProps) => {
-    
-    const {isSubscribed} = props;
-
-    if(!isSubscribed) return <div>Subscribe please</div>
-
-    return <OriginalComponent {...props}/>
-  }
-
-  return WithSubscribed;
-}
-
-const SubsribedSideBar = withSubscribed(SideBar);
-const SubsribedHeader = withSubscribed(Header);
-
 
 export default App;
