@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import confetti from "canvas-confetti";
 import { Square } from "./components/Square";
@@ -53,7 +53,7 @@ function App() {
       setWinner(false) //empate
     }
   }
-
+  
   return (
     <main className="board">
       <h1>Tic tac toe</h1>
