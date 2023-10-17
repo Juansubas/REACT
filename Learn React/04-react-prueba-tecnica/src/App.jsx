@@ -22,7 +22,7 @@ export function App () {
     }, [])
 
     return (
-        <main>
+        <main style={{display: 'flex', flexDirection: 'column', placeItems: 'center'}}>
             <h1> App de Gatitos</h1>
             {fact && <p>{fact}</p>}
             {imageUrl && <img src={imageUrl} alt={`Image extracted using the first three words for ${fact}`} />}

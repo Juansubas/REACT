@@ -14,6 +14,10 @@ export const Filters: React.FC<Props> = (
   return (
     <ul className="filters">
       {
+        // COn object.entries transformamos aun array para poder recorrerlo, donde
+        // cada subarray contiene una clave key y un objecto que tiene las propiedades
+        // recorrerlo, luego usamos la destructuracion y dividimos el array en dos partes
+        // la key o sea el nombre y luego un objeto con los valores
         Object.entries(FILTERS_BUTTONS).map(([key, { href, literal }]) => {
           const isSelect = key === filterSelected
           const className = isSelect ? 'selected' : ''
