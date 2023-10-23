@@ -1,6 +1,7 @@
 import './App.css'
 import { useCatImage } from './hooks/useCatImage'
 import { useCatFact } from "./hooks/useCatFact"
+import { Otro } from './Components/Otro';
 
 export function App () {
 
@@ -18,6 +19,7 @@ export function App () {
             <section>
                 {fact && <p>{fact}</p>}
                 {imageUrl && <img src={imageUrl} alt={`Image extracted using the first three words for ${fact}`} />}
+                <Otro/>
             </section>
         </main>
     )
