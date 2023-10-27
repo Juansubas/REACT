@@ -3,15 +3,44 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 2000px;
+    width: 100%;
 }
 
 main {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 form {
     align-items: center;
     display: flex;
     justify-content: center;
+}
+
+.movies {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    width: 100%;
+    /*Le decimos que la estructura de la grid de las columnas
+    sera cuantas quepan con el auto-fit, que minimo 200px y que maximo el tamano de 1 definida automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.movie {
+    text-align: center;
+}
+
+.movie h3 {
+    padding-bottom: 0;
+}
+
+.movie img {
+    border-radius: 8px;
+    margin-top: 16px;
 }
