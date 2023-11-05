@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import './Filters.css'
 // eslint-disable-next-line react/prop-types
 export function Filters ({ onChange }) {
   const [minPrice, setMinPrice] = useState(0)
+  const minPriceFilterId = useId()
+  const categoryFilterId = useId()
 
   const handleChangeMinPrice = (event) => {
     //aqui algo huele mal
@@ -30,7 +32,7 @@ export function Filters ({ onChange }) {
           <label htmlFor='price'>Precio a partir de:</label>
           <input 
             type='range' 
-            id='price' 
+            id={minPriceFilterId} 
             min='0'
             max='1000'
             onChange={handleChangeMinPrice}
@@ -40,7 +42,7 @@ export function Filters ({ onChange }) {
 
         <div>
           <label htmlFor='category'>Categoria</label>
-          <select id='category' onChange={handleChangeCategory}>
+          <select id={categoryFilterId} onChange={handleChangeCategory}>
             <option value='all'>Todas</option>
             <option value='laptops'>Portatiles</option>
             <option value='smartphones'>Celulares</option>
