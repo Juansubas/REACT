@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
+import { useCart } from '../hooks/useCart.js'
 import { AddToCartIcon } from './Icons.jsx'
 import './Products.css'
 
 export function Products ({ products }) {
+  const { addToCart } = useCart()
   console.log(products)
   return (
     <main className='products'>
@@ -16,7 +18,7 @@ export function Products ({ products }) {
               <strong>{product.title}</strong> - ${product.price}
             </div>
             <div>
-              <button>
+              <button onClick={() => addToCart(product)}>
                 <AddToCartIcon/>
               </button>
             </div>
