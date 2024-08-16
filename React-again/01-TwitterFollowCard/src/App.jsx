@@ -1,29 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { TwitterFollowCard } from './TwitterFollowCard'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const formatUserName = (userName) => `@${userName}`
 
   return (
-    <article className='tw-followCard'>
-      <header className='tw-followCard-header'>
-        <img 
-          src="https://unavatar.io/midudev" 
-          alt="El avatar de Midudev" 
-        />
-        <div className='tw-followCard-info'>
-          <strong>Miguel Angel Duran</strong>
-          <span className='tw-followCard-infoUserName'>@Midudev</span>
-        </div>
-      </header>
-      <aside>
-        <button className='tw-followCard-button'>
-          Seguir
-        </button>
-      </aside>
-    </article>
+    <>
+      <TwitterFollowCard formatUserName={formatUserName} isFollowing name='Miguel Angel Duran' userName='midudev'/> 
+      <TwitterFollowCard formatUserName={formatUserName} isFollowing={false} name='Pablo Hernandez' userName='pheralb'/> 
+      <TwitterFollowCard formatUserName={formatUserName} isFollowing name='Elon Musk' userName='elonmusk'/> 
+      <TwitterFollowCard formatUserName={formatUserName} isFollowing name='vxnder' userName='VanderHeart'/> 
+    </>
   )
 }
 
