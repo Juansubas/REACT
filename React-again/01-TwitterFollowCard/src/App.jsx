@@ -9,27 +9,17 @@ function App() {
       <TwitterFollowCard 
         formatUserName={formatUserName} 
         isFollowing 
-        name='Miguel Angel Duran' 
         userName='midudev'
-      /> 
+      > 
+        Miguel Angel Duran
+      </TwitterFollowCard> 
       <TwitterFollowCard 
         formatUserName={formatUserName} 
         isFollowing={false} 
-        name='Pablo Hernandez' 
         userName='pheralb'
-      /> 
-      <TwitterFollowCard 
-        formatUserName={formatUserName} 
-        isFollowing 
-        name='Elon Musk' 
-        userName='elonmusk'
-      /> 
-      <TwitterFollowCard 
-        formatUserName={formatUserName} 
-        isFollowing 
-        name='vxnder' 
-        userName='VanderHeart'
-      /> 
+      > 
+        Pablo Hernandez
+      </TwitterFollowCard>
     </div>
   )
 }
