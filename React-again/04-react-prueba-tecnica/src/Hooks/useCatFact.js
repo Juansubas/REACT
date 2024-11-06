@@ -5,16 +5,16 @@ function useCatFact() {
 
     const [fact, setFact] = useState("");
 
+    const fetchFact = async () => {
+        const response = await getRandomFact();
+        setFact(response);
+      };
+
     useEffect(() => {
-        const fetchFact = async () => {
-          const response = await getRandomFact();
-          setFact(response);
-        };
-    
         fetchFact();
       }, []);
 
-  return { fact };
+  return { fact, fetchFact };
 }
 
 export default useCatFact
