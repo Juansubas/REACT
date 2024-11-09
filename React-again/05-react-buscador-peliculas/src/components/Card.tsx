@@ -1,14 +1,14 @@
-import { Movie } from "../interfaces/Movie";
+import { MappedMovie, Movie } from "../interfaces/Movie";
 import { Names } from "../enums/names";
-import useMovies from "../Hooks/useMovies";
+import mappedMoviesService from "../services/mappedMovies";
 
 export const Card = ({ movies }: { movies: Movie[] }) => {
-  const { movies: mappedMovies } = useMovies({ movies });
+  const { movies: mappedMovies } = mappedMoviesService({ movies });
 
   return (
     <div className="m-10 p-3 container bg-gray-500 rounded-lg max-w-screen-lg">
       <ul className="text-white text-justify grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] place-items-center gap-3">
-        {mappedMovies?.map((movie) => (
+        {mappedMovies?.map((movie : MappedMovie) => (
           <li key={movie.id} className="flex flex-col items-center">
             <h1 className="truncate max-w-[231px]">{movie.title}</h1>
             <p>{movie.year}</p>

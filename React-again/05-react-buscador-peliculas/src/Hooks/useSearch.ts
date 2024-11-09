@@ -2,28 +2,31 @@ import { useEffect, useRef, useState } from "react"
 
 const useSearch = () => {
     const [search, updateSearch] = useState("");
+    const [searchValid, setSearchValid] = useState(false);	
     const [error, setError] = useState<string | null>(null);
     const isFirstInput = useRef(true);
 
     useEffect(() => {
         if (isFirstInput.current) {
-            isFirstInput.current = search === '';
-            return;
+            if (search === '') {
+                setSearchValid(false);
+                isFirstInput.current = false; // La próxima vez ya no será la primera entrada
+                return;
+            }
         }
 
         if (search.trim() === "") {
-            setError("No se puede buscar una pelicula vacia");
-            return;
-        }
-
-        if (search.length < 3) {
+            setError("No se puede buscar una película vacía");
+            setSearchValid(false);
+        } else if (search.length < 3) {
             setError("La longitud mínima de la búsqueda es de 3 caracteres");
-            return;
+            setSearchValid(false);
+        } else {
+            setError(null);
+            setSearchValid(true);
         }
-
-        setError(null);
     }, [search]);
-  return {search, error, updateSearch}
+  return {search,searchValid, error, updateSearch}
 }
 
 export default useSearch
