@@ -1,0 +1,37 @@
+.products{  
+    width: 100%;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+}
+
+.products > ul{
+    width: 100%;
+    display: grid;
+    grid-template-columns : repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.products > ul > li{
+    display: flex;
+    min-width: 280px;
+    min-height: 300px;
+    flex-direction: column;
+    align-items: center;
+    background: #111;
+    border: 1px soliD #ffffff;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 1, .1);
+    border-radius: 4px;
+    color: #fff;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.products > ul > li > img{
+    border-radius: 5px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: block;
+    object-fit: cover;
+    background: #cfdedf;
+}
