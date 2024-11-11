@@ -3,11 +3,23 @@ import { CartItem, CartsResponse } from '../types/cartTypes';
 const fetchCarts = async () : Promise<CartItem[]> => {
 
     const data = await fetch('https://dummyjson.com/products');
-    console.log(data);
     const dataJson : CartsResponse = await data.json();
-    console.log(dataJson);
+    const products :CartItem[] = dataJson.products.map((product) => {
+      return {
+        id: product.id,
+        title: product.title,
+        description: product.description,
+        category: product.category,
+        price: product.price,
+        discountPercentage: product.discountPercentage,
+        rating: product.rating,
+        stock: product.stock,
+        thumbnail: product.thumbnail,
+        quantity : 1,
+      }
+    })
     
-  return dataJson.products;
+  return products;
 }
 
 export default fetchCarts;

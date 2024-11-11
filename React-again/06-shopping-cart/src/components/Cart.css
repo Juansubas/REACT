@@ -1,0 +1,56 @@
+.cart-button {
+    background-color: rgb(37, 138, 138);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    width: 32px;
+    height: 32px;
+    transition: all 1s ease;
+}
+
+.cart-button:hover {
+    transform:  scale(1.1);
+}
+
+.cart {
+    display: none ;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: rgb(31, 28, 28);
+    overflow-y: scroll;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.cart img {
+    aspect-ratio: 16/9;
+    width: 100%;
+}
+
+input:checked ~ .cart-button{
+    position: fixed !important; /* Cambia a fixed cuando el input está checked */
+    top: 0px;
+    right: 0px;
+}
+
+input:checked ~ .cart{
+display: block;
+}
+
+.cart li{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 3px solid white;
+}
+
